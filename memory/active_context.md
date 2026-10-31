@@ -1,0 +1,3 @@
+# Active context
+
+Phases 0-5, including Phase 4b, are complete. The Composite conductor GMR screen now accepts custom counts 1–200; custom layouts fill center-out hexagonal rings, the 3-strand layout remains triangular, and the diagram and core calculation share coordinates. For the reported slow startup and black/grey patches, Home now loads first and the Composite/Line tabs build when opened. Removed forced sibling raising from shadow synchronization and selected CustomTkinter polygon rendering to avoid its missing-shape-font fallback. Compile and app import checks pass; interactive GUI review is still needed to confirm perceived startup and repaint behavior.

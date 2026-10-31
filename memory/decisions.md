@@ -1,0 +1,18 @@
+# Decisions
+
+- D-001: Use CustomTkinter for the initial app shell, consistent with the architecture and modern UI design; retain plain Tkinter Canvas for later geometry rendering. 2026-10-18.
+- D-002: Keep the supplied project documentation together under `docs/`, matching the documented repository layout. 2026-10-18.
+- D-003: Implemented the documented phase-group geometric-product formulas for composite GMR and mutual GMD, so bundles and parallel circuits share one calculation path. This follows the architecture and avoids separate circuit-specific math. 2026-10-18.
+- D-004: For `cmil` length-field input, convert circular area to its equivalent circular diameter (`sqrt(cmil)` mil); do not allow conversion back to cmil as if it were a length. 2026-10-18.
+- D-005: The user explicitly directed work to Phase 1 after Phase 0 scaffolding; the engine work proceeded while the GUI launch criterion remained unchecked. 2026-10-18.
+- D-006: The composite GMR screen starts with 7 strands and symbolic radius `r`, so the required Q1 answer is visible immediately; numeric entry recalculates and displays the absolute GMR in the selected unit. 2026-10-18.
+- D-007: The editable line table converts display values at the UI edge and stores all conductor coordinates/radii in metres. `cmil` display uses the equivalent circular area for the entered diameter, enabling the units requested by the PRD. 2026-10-18.
+- D-008: A bundle's spacing is the center-to-center distance between adjacent sub-conductors; 3-wire bundles use an equilateral triangle and 4-wire bundles use a square. 2026-10-18.
+- D-009: Generate calculation working from the same `LineModel` and `Result` used by the engine, keeping the report deterministic and the core free of GUI dependencies. Markdown is the export source; plain text is generated from it for the on-screen view and `.txt` export. 2026-10-18.
+- D-010: Keep polish controls beside line results: precision and reduced motion affect visible result updates, while Ctrl+Enter is scoped to the line-parameters tab. 2026-10-18.
+- D-011: Keep the existing tabbed calculation workspace and add a home page plus a four-stage stepper, so the Phase 4b entry flows work without duplicating calculation forms. The image card links to manual entry with a clear note because image extraction belongs to Phase 6. 2026-10-18.
+- D-012: Geometry dragging updates the immutable conductor model and the editable table on pointer release; the active drag keeps a fixed canvas transform so moving a point does not shift the rest of the layout. 2026-10-18.
+- D-013: Align the workspace with the design document by using a six-row scrollable conductor table, a responsive stacked layout below 1000 logical pixels, larger result values, 150 px minimum geometry height, and a 4-second slide-in toast. These are presentation changes; all entries remain reachable and calculation behavior is unchanged. 2026-10-18.
+- D-014: Use the current DESIGN.md v5 Neubrutalism specification for the visual refresh; calculations and workflows remain unchanged. 2026-10-20.
+- D-015: Follow the user's explicit direction over the v5 screen examples for the 30-second home action and Start/Add/Check/Results top navigation: omit both. Reason: the user directly requested their removal while retaining existing calculation functionality. 2026-10-20.
+- D-016: Allow custom stranded-conductor counts from 1 to 200. Use one centered strand followed by clockwise-filled hexagonal lattice rings, with a partial outer ring; keep the 3-strand triangle. The GMR calculation uses the exact coordinates shown in the diagram, making the packing assumption visible and reproducible. 2026-10-20.
